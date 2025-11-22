@@ -6,38 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 import java.util.Random;
 
-@RestController // This tells Spring this class will handle web requests
+@RestController 
 public class LinkController {
 
-    @Autowired // This "injects" an instance of your LinkRepository
+    @Autowired 
     private LinkRepository linkRepository;
 
-    // --- Endpoint 1: Create a Short Link ---
-    // This method listens for POST requests to "/api/shorten"
     @PostMapping("/api/shorten")
     public Link shortenLink(@RequestBody Map<String, String> request) {
-        // Get the longUrl from the JSON body
         String longUrl = request.get("longUrl");
         
-        // Generate a random 6-character ID
         String shortId = generateShortId();
         
-        // Create a new Link object
         Link link = new Link();
         link.setLongUrl(longUrl);
         link.setShortId(shortId);
         
-        // Save the new Link object to the H2 database and return it
         return linkRepository.save(link);
     }
 
-    // --- Endpoint 2: Redirect to the Long URL ---
-    // This method listens for GET requests (like from a browser)
-    // The "{shortId}" part means it's a variable
     @GetMapping("/{shortId}")
     public RedirectView redirectToLongUrl(@PathVariable String shortId) {
         
-        // Use the repository to find the link by its shortId
         Link link = linkRepository.findByShortId(shortId);
         
         if (link != null) {
@@ -52,7 +42,6 @@ public class LinkController {
         }
     }
 
-    // --- Helper function to make a random string ---
     private String generateShortId() {
         int length = 6;
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
