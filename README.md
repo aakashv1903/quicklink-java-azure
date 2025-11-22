@@ -8,8 +8,7 @@ This project demonstrates a complete DevOps workflow: from local development wit
 
 You can test the live API deployed on Azure App Service here:
 
-**Base URL**: https://aakash-quicklink-2025.azurewebsites.net
-(Note: Replace this with your actual Azure URL)
+**Base URL**: https://quicklink-2025-gnehbad4cgeadvb4.southindia-01.azurewebsites.net
 
 ## 🏗️ Architecture
 
