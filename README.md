@@ -8,7 +8,7 @@ This project demonstrates a complete DevOps workflow: from local development wit
 
 You can test the live API deployed on Azure App Service here:
 
-**Base URL**: https://quicklink-2025-gnehbad4cgeadvb4.southindia-01.azurewebsites.net
+**Base URL**: https://quicklink-2025-gnehbad4cgeadvb4.southindia-01.azurewebsites.net/3MFSa4
 
 ## 🏗️ Architecture
 
@@ -52,20 +52,19 @@ Content-Type: application/json
 Body:
 
 {
-  "longUrl": "[https://www.linkedin.com/in/aakashv1903/](https://www.linkedin.com/in/aakashv1903/)"
+  "longUrl": "https://www.linkedin.com/in/aakashv1903/"
 }
 
 
 Response (200 OK):
 
 {
-    "id": 1,
-    "shortId": "aK3bF",
-    "longUrl": "[https://www.linkedin.com/in/aakashv1903/](https://www.linkedin.com/in/aakashv1903/)",
+    "id": 54,
+    "shortId": "3MFSa4",
+    "longUrl": "https://www.linkedin.com/in/aakashv1903/",
     "clickCount": 0,
-    "createdAt": "2025-11-18T10:00:00.000+00:00"
+    "createdAt": "2025-11-22T15:26:18.502+00:00"
 }
-
 
 2. Redirect (Use the Link)
 
@@ -73,7 +72,7 @@ Redirects the user to the original Long URL.
 
 Endpoint: GET /{shortId}
 
-Example: https://aakash-quicklink-2025.azurewebsites.net/aK3bF
+Example: https://quicklink-2025.azurewebsites.net/{shortId}
 
 Behavior: Returns HTTP 302 Redirect to the destination.
 
